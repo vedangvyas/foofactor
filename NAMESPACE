@@ -2,4 +2,4 @@
 
 export(fbind)
 export(freq_out)
-export(should_be_factor)
+export(should_factor_be_factor)

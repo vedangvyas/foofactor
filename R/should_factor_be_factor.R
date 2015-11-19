@@ -1,15 +1,15 @@
 #' Should this really be a factor?
 #'
-#' @param x vector
+#' @param x factor
 #'
 #' @return boolean; \code{TRUE} if the number of unique values does not equal to the length, and \code{FALSE} otherwise.
 #' @export
 #' @examples
 #' # This should be a factor:
-#' should_be_factor(c("a", "b", "b"))
+#' should_be_factor(factor(c("a", "b", "b")))
 #'
 #' # This should not be a factor
-#' should_be_factor(c("a", "b", "c"))
-should_be_factor <- function(x){
+#' should_be_factor(factor(c("a", "b", "c")))
+should_factor_be_factor <- function(x){
   length(x) != length(unique(x))
 }
