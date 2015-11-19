@@ -4,10 +4,12 @@
 \alias{freq_out}
 \title{Create a frequency table for a factor}
 \usage{
-freq_out(x)
+freq_out(x, n.sort = NULL)
 }
 \arguments{
 \item{x}{factor}
+
+\item{n.sort}{one of \code{c(NULL, "ascending", "descending")}. This argument specifies how to sort the counts in the frequency table.}
 }
 \value{
 tbl_df
