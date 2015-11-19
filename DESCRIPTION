@@ -3,10 +3,13 @@ Title: Make Factors Less Annoying
 Version: 0.0.0.9000
 Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
 Description: Factors have driven people to extreme measures, like ordering custom conference ribbons and laptop stickers to express how HELLNO we feel about stringAsFactors. And yet, sometimes you need them. Can they be made less maddening? Let's find out. --Jenny Bryan
-Depends:
+Depends: 
     R (>= 3.2.2)
 License: MIT + file LICENSE
 LazyData: true
 RoxygenNote: 5.0.0
-Suggests: testthat
+Suggests: testthat,
+    knitr,
+    rmarkdown
 Imports: dplyr
+VignetteBuilder: knitr
