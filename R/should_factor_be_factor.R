@@ -6,10 +6,10 @@
 #' @export
 #' @examples
 #' # This should be a factor:
-#' should_be_factor(factor(c("a", "b", "b")))
+#' should_factor_be_factor(factor(c("a", "b", "b")))
 #'
 #' # This should not be a factor
-#' should_be_factor(factor(c("a", "b", "c")))
+#' should_factor_be_factor(factor(c("a", "b", "c")))
 should_factor_be_factor <- function(x){
   length(x) != length(unique(x))
 }
