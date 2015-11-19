@@ -4,12 +4,14 @@
 \alias{fbind}
 \title{Bind two factors together}
 \usage{
-fbind(a, b)
+fbind(a, b, level.as.appears = TRUE)
 }
 \arguments{
 \item{a}{factor}
 
 \item{b}{factor}
+
+\item{level.as.appears}{boolean; should the factor levels be combined as they appear?}
 }
 \value{
 factor
