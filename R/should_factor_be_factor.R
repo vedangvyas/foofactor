@@ -11,5 +11,8 @@
 #' # This should not be a factor
 #' should_factor_be_factor(factor(c("a", "b", "c")))
 should_factor_be_factor <- function(x){
-  length(x) != length(unique(x))
+  if (is.factor(x))
+    length(x) != length(unique(x))
+  else
+    stop("please specify a factor")
 }
