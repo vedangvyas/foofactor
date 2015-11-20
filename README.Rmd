@@ -58,7 +58,7 @@ Here we ask whether it makes sense for a factor to stay as a factor e.g. if the 
 ## Vignettes
 For more information, please check out the vignette at:
 ```{r eval=FALSE}
-vignette("foofactor")
+vignette("foofactor", package = "foofactor")
 ```
 
 ## Acknowledgements

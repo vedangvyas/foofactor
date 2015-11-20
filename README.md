@@ -85,7 +85,7 @@ Vignettes
 For more information, please check out the vignette at:
 
 ``` r
-vignette("foofactor")
+vignette("foofactor", package = "foofactor")
 ```
 
 Acknowledgements
