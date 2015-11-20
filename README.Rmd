@@ -49,7 +49,7 @@ freq_out(exampleFactor3, n.sort = "descending")
 ```
 `n.sort` can take the values of `ascending`, `descending`, or `NULL` (where `NULL` refers to the default behaviour without sorting on the frequency column).
 
-### `should_factor_stay_factor` - Should factor be factor?
+### `should_factor_stay_factor` - Should factor stay as factor?
 ```{r}
 should_factor_stay_factor(exampleFactor3)
 ```
