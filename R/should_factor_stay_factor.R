@@ -9,11 +9,11 @@
 #' abc <- factor(c("a", "b", "c"))
 #'
 #' # This should be a factor:
-#' should_factor_be_factor(abb)
+#' should_factor_stay_factor(abb)
 #'
 #' # This should not be a factor
-#' should_factor_be_factor(abc)
-should_factor_be_factor <- function(x){
+#' should_factor_stay_factor(abc)
+should_factor_stay_factor <- function(x){
   if (is.factor(x))
     length(x) != length(unique(x))
   else
