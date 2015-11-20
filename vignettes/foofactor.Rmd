@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "foofactor"
+author: "csiu"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -8,51 +8,80 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
-
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
-
-## Vignette Info
-
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+The goal of foofactor -- based on [foofactors](https://github.com/STAT545-UBC/foofactors) -- is to practice in the development of an R package^[[Write your own R package](http://stat545-ubc.github.io/packages00_index.html)]. Functions include:
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+- `fbind()`
+- `freq_out()`
+- `should_factor_be_factor()`
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+## Installation
 
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```{r eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("csiu/foofactor")
 ```
 
-Also a quote using `>`:
+```{r}
+library(foofactor)
+```
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+## Example data
+Here the number of factors and number of factor levels are the same:
+```{r}
+exampleFactor1
+exampleFactor2
+```
+
+Here factors are repeated:
+```{r}
+exampleFactor3
+```
+
+## `fbind` - Bind two factors together
+Here we bind together two factors and by default the factor levels are combined as they appear e.g. `level.as.appears = TRUE`:
+```{r}
+fbind(exampleFactor1, exampleFactor2)
+```
+
+When we let `level.as.appears = FALSE`, the order of the levels will seemingly be random:
+```{r}
+fbind(exampleFactor1, exampleFactor2, level.as.appears = FALSE)
+```
+
+## `freq_out` - Create a frequency table for a factor
+Here we create a frequency table for a factor:
+```{r}
+freq_out(exampleFactor3)
+```
+
+We can sort this table according to ascending frequencies:
+```{r}
+freq_out(exampleFactor3, n.sort = "ascending")
+```
+
+We can sort this table according to descending frequencies:
+```{r}
+freq_out(exampleFactor3, n.sort = "descending")
+```
+
+`n.sort` can therefore take the values of `ascending`, `descending`, or `NULL` (where `NULL` refers to the default behaviour without sorting on the frequency column).
+
+## `should_factor_stay_factor` - Should factor stay as factor?
+Here we ask whether it makes sense for a factor to stay as a factor e.g. if the number of unique values of a factor is equal to the length (such as in `exampleFactor1`), then maybe the factor would be better suited as a character vector so the factor should not stay as a factor.
+
+```{r}
+should_factor_stay_factor(exampleFactor1)
+```
+
+On the other hand, if the number of unique values of a factor does not equal the length (such as in `exampleFactor3`), then maybe the factor would be better suited to stay as a factor.
+
+```{r}
+should_factor_stay_factor(exampleFactor3)
+```
