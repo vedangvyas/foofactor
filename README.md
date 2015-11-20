@@ -79,6 +79,15 @@ should_factor_stay_factor(exampleFactor3)
 
 Here we ask whether it makes sense for a factor to stay as a factor e.g. if the number of unique values of a factor is equal to the length, then maybe the factor would be better suited as a character vector.
 
+Vignettes
+---------
+
+For more information, please check out the vignette at:
+
+``` r
+vignette("foofactor")
+```
+
 Acknowledgements
 ----------------
 
