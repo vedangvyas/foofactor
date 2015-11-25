@@ -1,5 +1,5 @@
-foofactors
-==========
+foofactor
+=========
 
 The goal of foofactor is to [practice in the development of an R package](http://stat545-ubc.github.io/packages00_index.html). Functions include:
 
